@@ -1,0 +1,22 @@
+{
+  "name": "playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --config=./jest.config.js ./src/test/specs/*.{js,jsx,ts} --force-exit --maxworker=1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.15.1",
+    "chai": "^4.3.0",
+    "typescript": "^4.4.3",
+    "@types/chai": "^4.2.22",
+    "@types/jest": "^26.0.20",
+    "jest": "^26.6.3",
+    "jest-playwright-preset": "1.7.0",
+    "ts-jest": "^26.5.0"
+  }
+}
