@@ -18,20 +18,22 @@ let currentDateTime = new Date().toISOString();
 
 let credentials = data.credentials;
 
-describe('BookMyShow UI', () => {
+describe('Sign In', () => {
 
     beforeAll(async ()  => {
         browser = await chromium.launch({
             headless: false
         })
-        context = await browser.newContext();
+        context = await browser.newContext({
+            recordVideo: { dir: './videos/'}
+        });
         page = await context.newPage();
         basePage = new BasePage(page);
         homePage = new HomePage(page);
-        await basePage.navigateTo('https://www.rahulshettyacademy.com/loginpagePractise/');
     })
 
     it('Verify login functionality', async ()=> {
+        await basePage.navigateTo('https://www.rahulshettyacademy.com/loginpagePractise/');
        await homePage.enterUserName(credentials.username);
        await  homePage.enterPasswordField(credentials.password);
        await homePage.selectRole(dropDownValues.Teacher);
@@ -42,8 +44,11 @@ describe('BookMyShow UI', () => {
            'Expected the presence of brand name, Unable to login').to.be.true;
     })
 
+
+
     afterAll(async () => {
         await page.screenshot({path: join(process.cwd(),`screenshots/screenshot_${currentDateTime}.png`)})
+        await context.close();
         await browser.close();
     })
 })
