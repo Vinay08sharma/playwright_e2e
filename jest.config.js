@@ -7,34 +7,11 @@ module.exports = {
     name: "web",
     displayName: "WEB AUTOMATION",
     verbose: true,
-    preset: "ts-jest",
+    preset: "jest-playwright-preset",
     testTimeout: 420000,
     globals: {
         "ts-jest": {
-            tsconfig: {
-                compilerOptions: {
-                    lib: ["dom", "ES2020"],
-                    target: "ES2020",
-                    module: "commonjs",
-                    noImplicitAny: false,
-                    noImplicitReturns: true,
-                    resolveJsonModule: true,
-                    esModuleInterop: true,
-                    declaration: true,
-                    allowJs: false,
-                    baseUrl: "./test",
-                    outDir: "./dist",
-                    types: ["node", "jest", "chai"],
-                },
-                "moduleFileExtensions": [
-                    "ts",
-                    "tsx",
-                    "js",
-                    "jsx",
-                    "json",
-                    "node"
-                ]
-            },
+            tsconfig:"./tsconfig.json",
             diagnostics: {
                 warnOnly: true,
             },
@@ -46,4 +23,6 @@ module.exports = {
     transform: {
         "^.+\\.(ts|tsx)$": "ts-jest",
     },
+    testRunner: 'jasmine2',
+    setupFilesAfterEnv: ["jest-allure/dist/setup"]
 };

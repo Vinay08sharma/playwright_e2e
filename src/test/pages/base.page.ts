@@ -1,4 +1,4 @@
-import {Page, chromium} from "@playwright/test";
+import {Page, chromium} from "playwright";
 
 export  class BasePage {
     private  readonly page: Page;
@@ -7,13 +7,7 @@ export  class BasePage {
     }
 
     async navigateTo(url: string){
-        const browser = await chromium.launch({
-            headless: false,
-        });
-        const context = await browser.newContext();
-        const page = await context.newPage();
         await this.page.goto(url);
-        return this;
     }
 
     async tearDown() {
