@@ -6,7 +6,6 @@ import {HomePage} from "../pages/home.page";
 import {dropDownValues} from "../resources/customTypes";
 import { TestUrl } from "../resources/urls";
 import * as path from "path";
-// @ts-ignore
 import * as data from "../data/creds.json";
 
 declare const page: Page;
