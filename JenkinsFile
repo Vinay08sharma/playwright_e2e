@@ -15,6 +15,7 @@ pipeline {
         // }
         stage('Running Test Cases') {
             steps{
+                clearnWs()
                 echo '--------- Running TestCases -----------'
                 // sh "bash runTest.sh" 
                 npm i
