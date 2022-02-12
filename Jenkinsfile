@@ -11,6 +11,7 @@ pipeline {
                 sh "bash runTest.sh"
                 echo "RUNNING TESTS"
             }
+        }
     }
     post {
         success {
