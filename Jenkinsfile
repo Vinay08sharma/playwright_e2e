@@ -5,11 +5,12 @@ pipeline {
     }
     stages {
         stage('Running Test Cases') {
-            steps{
-               sh runTest.sh
+           steps{
+                echo "-------------- RUNNING TEST -----------"
+                cleanWs()
+                sh "bash runTest.sh"
+                echo "RUNNING TESTS"
             }
-            echo "Running Test Cases"
-        }
     }
     post {
         success {
