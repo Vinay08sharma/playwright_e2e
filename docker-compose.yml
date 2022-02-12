@@ -1,0 +1,12 @@
+# Working docker compose file
+
+version: "1.0"
+services:
+  web:
+    image: selenium/standalone-chrome
+    volumes:
+      - /dev/shm:/dev/shm
+      - ./tempDownload:/home/seluser/Downloads
+    ports:
+      - 4446:4444
+    container_name: standalone_chrome  
