@@ -16,7 +16,7 @@ pipeline {
         stage('Running Test Cases') {
             steps{
                 echo '--------- Running TestCases -----------'
-                sh "bash runTest.sh"
+                sh "bash runTest.sh" 
             }
             echo "Running Test Cases"
         }
