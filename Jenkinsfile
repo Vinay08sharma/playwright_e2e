@@ -8,7 +8,7 @@ pipeline {
            steps{
                 echo "-------------- RUNNING TEST -----------"
                 cleanWs()
-                sh "runTest.sh"
+                sh "bash ./runTest.sh"
                 echo "RUNNING TESTS"
             }
         }
