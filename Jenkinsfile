@@ -6,10 +6,7 @@ pipeline {
     stages {
         stage('Running Test Cases') {
             steps{
-               npm i
-               
-               npm run test
-               
+               sh runTest.sh
             }
             echo "Running Test Cases"
         }
