@@ -6,9 +6,9 @@ pipeline {
     stages {
         stage('Running Test Cases') {
             steps{
-                cleanWs()
-                echo '-------- Running Test Cases -----------'
-                sh runTest.sh
+               npm i
+               
+               npm run test
                
             }
             echo "Running Test Cases"
