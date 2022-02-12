@@ -4,25 +4,11 @@ pipeline {
         timeout(time:1, unit: 'HOURS')
     }
     stages {
-        // stage('Start Docker instance') {
-        //     steps {
-        //         echo '---------Checking docker images-------' 
-        //         docker container ls
-
-        //         echo '----------- Making Docker instance up ------------'
-        //         docker compose up
-        //     }
-        // }
         stage('Running Test Cases') {
             steps{
                 cleanWs()
-                checkout([$class: 'GitSCM', extensions: [], userRemoteConfigs: [[url: 'git@gitlab.vedantu.in:growth/qa-automation.git']]])
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    echo '--------- Running TestCases -----------'
-                    // sh "bash runTest.sh" 
-                    npm i
-                    npm run test
-                }
+                echo '-------- Running Test Cases -----------'
+                sh runTest.sh
                
             }
             echo "Running Test Cases"
