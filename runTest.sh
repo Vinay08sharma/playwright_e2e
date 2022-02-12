@@ -1,3 +1,4 @@
+#!/bin/bash
 set -x
 
 echo '------ Running Test Cases on Docker Machine ----- '
