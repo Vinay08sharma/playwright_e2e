@@ -7,7 +7,8 @@ pipeline {
         stage('Running Test Cases') {
            steps{
                 echo "-------------- RUNNING TEST -----------"
-                cleanWs()
+//                 cleanWs()
+                sh "echo searching for runTest file"
                 sh "bash runTest.sh"
                 echo "RUNNING TESTS"
             }

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --config=./jest.config.js ./src/test/specs/*.{js,jsx,ts} --force-exit --maxworker=1"
+    "test": "jest --config=./jest.config.js ./src/test/specs/login.spec.ts --force-exit --maxworker=1"
   },
   "keywords": [],
   "author": "",
