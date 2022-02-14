@@ -1,11 +1,9 @@
 import {BasePage} from "../pages/base.page";
-import {Browser, BrowserContext, chromium, Page} from "playwright";
-import {expect, expect as chaiExpect} from 'chai';
-import { join } from 'path';
+import {Page} from "playwright";
+import {expect} from 'chai';
 import {HomePage} from "../pages/home.page";
 import {dropDownValues} from "../resources/customTypes";
 import { TestUrl } from "../resources/urls";
-import * as path from "path";
 import * as data from "../data/creds.json";
 
 declare const page: Page;
@@ -34,6 +32,21 @@ describe('Sign In', () => {
        await homePage.enterUserName(credentials.username);
        await  homePage.enterPasswordField(credentials.password);
        await homePage.selectRole(dropDownValues.Teacher);
+       await homePage.clickOnSignInButton();
+       const isBrandNameVisible = await homePage.isBrandNameVisible();
+       expect(isBrandNameVisible,
+           'Expected the presence of brand name, Unable to login').to.be.true;
+    })
+
+    it('Verify login functionality with student role', async ()=> {
+        reporter
+            .description('Login Functionality with Student role')
+            .severity("Critical")
+            .story('US_002')
+        await basePage.navigateTo(TestUrl.BASE);
+       await homePage.enterUserName(credentials.username);
+       await  homePage.enterPasswordField(credentials.password);
+       await homePage.selectRole(dropDownValues.STUDENT);
        await homePage.clickOnSignInButton();
        const isBrandNameVisible = await homePage.isBrandNameVisible();
        expect(isBrandNameVisible,
