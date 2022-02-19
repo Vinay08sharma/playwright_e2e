@@ -40,6 +40,36 @@ describe('Sign In', () => {
            'Expected the presence of brand name, Unable to login').to.be.true;
     })
 
+    it('Verify login functionality with student role', async ()=> {
+        reporter
+            .description('Login Functionality')
+            .severity("Critical")
+            .story('US_001')
+        await basePage.navigateTo(TestUrl.BASE);
+       await homePage.enterUserName(credentials.username);
+       await  homePage.enterPasswordField(credentials.password);
+       await homePage.selectRole(dropDownValues.STUDENT);
+       await homePage.clickOnSignInButton();
+       const isBrandNameVisible = await homePage.isBrandNameVisible();
+       expect(isBrandNameVisible,
+           'Expected the presence of brand name, Unable to login').to.be.true;
+    })
+
+    it('Verify login functionality with consultant role', async ()=> {
+        reporter
+            .description('Login Functionality')
+            .severity("Critical")
+            .story('US_001')
+        await basePage.navigateTo(TestUrl.BASE);
+       await homePage.enterUserName(credentials.username);
+       await  homePage.enterPasswordField(credentials.password);
+       await homePage.selectRole(dropDownValues.Consultant);
+       await homePage.clickOnSignInButton();
+       const isBrandNameVisible = await homePage.isBrandNameVisible();
+       expect(isBrandNameVisible,
+           'Expected the presence of brand name, Unable to login').to.be.true;
+    })
+
     afterAll(async () => {
         // await page.screenshot({path: join(process.cwd(),`screenshots/screenshot_${currentDateTime}.png`)})
         const screenshot = await page.screenshot();
