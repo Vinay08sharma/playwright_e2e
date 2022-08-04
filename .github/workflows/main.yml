@@ -26,4 +26,4 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Run your tests
-        run: npx playwright test --project=${{ matrix.project }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+        run: npm run test
